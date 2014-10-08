@@ -8,126 +8,34 @@
 
 
 public class Quiz {
+	
 	public static void main(String[] args) {
-		int num_of_questions = 0;
-		// A set of hard coded questions and answers along with possible answers
-		//cycle through all questions and initialize the array of Questions
-		//for each quesitonincriment the number of questions so the quiz can be scored
-		String[] hardcoded_questions = {
-				"question1",
-				"question2",
-				"question3",
-				"question4",
-				"question5",
-				"question6",
-				"question7",
-				"question8",
-				"question9",
-				"question10"
-		};//end of hardcoded questions
-		String[] hardcoded_answers = {
-				"answers1",
-				"answer2",
-				"answer3",
-				"answer4",
-				"answer5",
-				"answer6",
-				"answer7",
-				"answer8",
-				"answer9",
-				"answer10"
-		};//end of hardcoded answers
-		//Hardcoded possible answers to display
-		String[] hardcoded_possible_answers1 = {
-				"possibleanswers1",
-				"possibleanswer2",
-				"possibleanswer3",
-				"possibleanswer4",
-				"possibleanswer5"
-		};//end of hardcoded Possible answers1
+		//Variables
+		int[] randomQuestionOrder;
+		int[] randomOptionsOrder; //will include random spot of answer
+		//Objects
+		ExclusiveRandomOrder randomOrder = new ExclusiveRandomOrder();
 		
-		String[] hardcoded_possible_answers2 = {
-				"possibleanswers1",
-				"possibleanswer2",
-				"possibleanswer3",
-				"possibleanswer4",
-				"possibleanswer5"
-		};//end of hardcoded Possible answers1
-		
-		String[] hardcoded_possible_answers3 = {
-				"possibleanswers1",
-				"possibleanswer2",
-				"possibleanswer3",
-				"possibleanswer4",
-				"possibleanswer5"
-		};//end of hardcoded Possible answers1
-		
-		String[] hardcoded_possible_answers4 = {
-				"possibleanswers1",
-				"possibleanswer2",
-				"possibleanswer3",
-				"possibleanswer4",
-				"possibleanswer5"
-		};//end of hardcoded Possible answers1
-		
-		String[] hardcoded_possible_answers5 = {
-				"possibleanswers1",
-				"possibleanswer2",
-				"possibleanswer3",
-				"possibleanswer4",
-				"possibleanswer5"
-		};//end of hardcoded Possible answers1
-		
-		String[] hardcoded_possible_answers6 = {
-				"possibleanswers1",
-				"possibleanswer2",
-				"possibleanswer3",
-				"possibleanswer4",
-				"possibleanswer5"
-		};//end of hardcoded Possible answers1
-		
-		String[] hardcoded_possible_answers7= {
-				"possibleanswers1",
-				"possibleanswer2",
-				"possibleanswer3",
-				"possibleanswer4",
-				"possibleanswer5"
-		};//end of hardcoded Possible answers1
-		
-		String[] hardcoded_possible_answers8 = {
-				"possibleanswers1",
-				"possibleanswer2",
-				"possibleanswer3",
-				"possibleanswer4",
-				"possibleanswer5"
-		};//end of hardcoded Possible answers1
-		
-		String[] hardcoded_possible_answers9 = {
-				"possibleanswers1",
-				"possibleanswer2",
-				"possibleanswer3",
-				"possibleanswer4",
-				"possibleanswer5"
-		};//end of hardcoded Possible answers1
-		
-		String[] hardcoded_possible_answers10 = {
-				"possibleanswers1",
-				"possibleanswer2",
-				"possibleanswer3",
-				"possibleanswer4",
-				"possibleanswer5"
-		};//end of hardcoded Possible answers1
+		HardCodedQuestions hard_coded_questions = new HardCodedQuestions();
+		//randomQuestionOrder = 
+		randomQuestionOrder = randomOrder.generateRandomOrder(HardCodedQuestions.sNumberOfQuestions);
+		randomOptionsOrder= randomOrder.generateRandomOrder(HardCodedQuestions.sNumberOfOptions+1);
+
+		Question[] quiz_questions = new Question[HardCodedQuestions.sNumberOfQuestions];
 		
 		
+		loadAllQuestions(hard_coded_questions, quiz_questions, randomQuestionOrder);
 		
-		Question[] quiz_questions = new Question[10];
-		quiz_questions[0] = new Question();
-		quiz_questions[0].setMquestionText("First question");
-		//quiz_questions[0].question_text = "First question";
-		System.out.println("a quiz " + quiz_questions[0].mquestionText);
-		// TODO Auto-generated method stub
-		//System.out.println("What we need is a " + phrase);
-		System.out.println("a quiz ");
+		
+		//displayQuestion(quiz_questions[1]);
+		startQuiz(quiz_questions);
+//		quiz_questions[0] = new Question();
+//		quiz_questions[0].setMquestionText("First question");
+//		//quiz_questions[0].question_text = "First question";
+//		System.out.println("a quiz " + quiz_questions[0].getMquestionText());
+//		// TODO Auto-generated method stub
+//		//System.out.println("What we need is a " + phrase);
+//		System.out.println("a quiz ");
 		/*
 		 * create the quiz 
 		 * 
@@ -142,19 +50,51 @@ public class Quiz {
 		 */
 		
 		
-		System.out.println("a quiz " + makeQuestions().mquestionText);
+		//System.out.println("a quiz " + makeQuestions().getMquestionText());
+	}
+	/**
+	 * This function cycles through all of the "harcoded" questions and answers
+	 * and loads the relevant data into the class Question
+	 * 
+	 * @param question_text
+	 * @return
+	 */
+	static void loadAllQuestions(HardCodedQuestions hCQuestionsIn, Question[] questionsIn, int[] questionOrder){
+		int randomIndex; //temp for random version of index
+		for (int i = 0; i < hCQuestionsIn.sNumberOfQuestions; i++){
+			randomIndex = questionOrder[i];
+			questionsIn[i] = new Question();
+			questionsIn[i].setMquestionText(hCQuestionsIn.hardCodedQuestions[randomIndex]);
+			questionsIn[i].setManswer(hCQuestionsIn.hardCodedAnswers[randomIndex]);			
+			questionsIn[i].setMoptions(hCQuestionsIn.allHardCodedOptions[randomIndex]);
+			
+			
+			//Here might be a good place to randomize the answers/options
+			//however if I do in when I display the test then I can still
+			//keep track of the answer as well and I only have do Randomize
+			//that data in one place
+			
+		}//end for i loop
+		 
 	}
 	
-	boolean loadAllQuestions(String[] question_text/*,other strings string*/ ){
-			return true;
-}
-	
-	static Question makeQuestions(){
-		
-		Question nameofquestion = new Question();
-		nameofquestion.setMquestionText("hardcoded question example");
-		return nameofquestion;
-		//nameofquestion
+	static void displayQuestion(Question question){
+		String[] options = question.getoptions();
+		System.out.println("Question " + question.getMquestionText());
+		System.out.println("Answer " + question.getManswer());
+		for (int i = 0; i < Question.sNumberOfOption;){
+			System.out.println("Options " + options[i]);
+			i++;
+		}//end for i
+	}
+	static void startQuiz(Question allQuestions[]){
+		for (int i=0; i < Question.sNumberOfQuestions;){
+			displayQuestion(allQuestions[i]);
+			//prompt for answer
+			
+			//check answer
+			i++;
+		}//end for i
 	}
 
 }

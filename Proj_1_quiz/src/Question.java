@@ -1,35 +1,14 @@
 
 public class Question {
-	String mquestionText;
-	String mpossibleAnswers[];
-	char manswer;
+	
+	static int sNumberOfQuestions = 0;
+	static int sNumberOfOption = 4;
+	
+	private String mquestionText;
+	private String moptions[];
+	private String manswer;
 	
 	
-	
-	//the eclipse generated constructor is next
-	/**
-	 * @param mquestionText
-	 * @param mpossibleAnswers
-	 * @param manswer
-	 */
-	public Question(String mquestionText, String[] mpossibleAnswers,
-			char manswer) {
-		this.mquestionText = mquestionText;
-		this.mpossibleAnswers = mpossibleAnswers;
-		this.manswer = manswer;
-	}
-
-
-	
-	//constructor pre-set all data to null values
-	//will change constructor to init to passed in values
-	Question(){
-		mquestionText = null;
-		mpossibleAnswers = null;
-		manswer = '-';
-		
-	}
-
 
 	//***Eclipse generated getters and setters below***
 	/**
@@ -40,30 +19,29 @@ public class Question {
 	}
 
 
-
 	/**
 	 * @param mquestionText the mquestionText to set
 	 */
 	public void setMquestionText(String mquestionText) {
 		this.mquestionText = mquestionText;
+		sNumberOfQuestions ++;
+	}
+
+
+	/**
+	 * @return the moptions
+	 */
+	public String[] getoptions() {
+		return moptions;
 	}
 
 
 
 	/**
-	 * @return the mpossibleAnswers
+	 * @param moptions the moptions to set
 	 */
-	public String[] getMpossibleAnswers() {
-		return mpossibleAnswers;
-	}
-
-
-
-	/**
-	 * @param mpossibleAnswers the mpossibleAnswers to set
-	 */
-	public void setMpossibleAnswers(String[] mpossibleAnswers) {
-		this.mpossibleAnswers = mpossibleAnswers;
+	public void setMoptions(String[] moptions) {
+		this.moptions = moptions;
 	}
 
 
@@ -71,7 +49,7 @@ public class Question {
 	/**
 	 * @return the manswer
 	 */
-	public char getManswer() {
+	public String getManswer() {
 		return manswer;
 	}
 
@@ -80,7 +58,7 @@ public class Question {
 	/**
 	 * @param manswer the manswer to set
 	 */
-	public void setManswer(char manswer) {
+	public void setManswer(String manswer) {
 		this.manswer = manswer;
 	}
 
