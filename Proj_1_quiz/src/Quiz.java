@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /* Raymond Williams
  * Project 1 for ECE 588
  * Fall 2014
@@ -86,6 +88,14 @@ public class Quiz {
 			System.out.println("Options " + options[i]);
 			i++;
 		}//end for i
+		Scanner scan = new Scanner( System.in );
+		System.out.print( "Enter your answer 1, 2, 3, 4 or 5 > " );
+		String firstName = scan.next( );
+		int age = scan.nextInt( );
+		System.out.println("Your Selection is " + age);
+		System.out.println("Is that your final Answer? " + age);
+		System.out.print( "Enter your age > " );
+		age = scan.nextInt( );
 	}
 	static void startQuiz(Question allQuestions[]){
 		for (int i=0; i < Question.sNumberOfQuestions;){
