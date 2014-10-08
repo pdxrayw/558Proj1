@@ -1,45 +1,92 @@
 
 public class Question {
-	String question_text;
-	String possible_answers[];
-	char answer;
+	String mquestionText;
+	String mpossibleAnswers[];
+	char manswer;
 	
-	//constructor only to pre-set all data to null values
+	
+	
+	//the eclipse generated constructor is next
+	/**
+	 * @param mquestionText
+	 * @param mpossibleAnswers
+	 * @param manswer
+	 */
+	public Question(String mquestionText, String[] mpossibleAnswers,
+			char manswer) {
+		this.mquestionText = mquestionText;
+		this.mpossibleAnswers = mpossibleAnswers;
+		this.manswer = manswer;
+	}
+
+
+	
+	//constructor pre-set all data to null values
+	//will change constructor to init to passed in values
 	Question(){
-		question_text = null;
-		possible_answers = null;
-		answer = '-';
+		mquestionText = null;
+		mpossibleAnswers = null;
+		manswer = '-';
 		
 	}
+
+
+	//***Eclipse generated getters and setters below***
+	/**
+	 * @return the mquestionText
+	 */
+	public String getMquestionText() {
+		return mquestionText;
+	}
+
+
+
+	/**
+	 * @param mquestionText the mquestionText to set
+	 */
+	public void setMquestionText(String mquestionText) {
+		this.mquestionText = mquestionText;
+	}
+
+
+
+	/**
+	 * @return the mpossibleAnswers
+	 */
+	public String[] getMpossibleAnswers() {
+		return mpossibleAnswers;
+	}
+
+
+
+	/**
+	 * @param mpossibleAnswers the mpossibleAnswers to set
+	 */
+	public void setMpossibleAnswers(String[] mpossibleAnswers) {
+		this.mpossibleAnswers = mpossibleAnswers;
+	}
+
+
+
+	/**
+	 * @return the manswer
+	 */
+	public char getManswer() {
+		return manswer;
+	}
+
+
+
+	/**
+	 * @param manswer the manswer to set
+	 */
+	public void setManswer(char manswer) {
+		this.manswer = manswer;
+	}
+
+	//***End eclipe generated getters and setters ****
+
 	
-	boolean set_question(String question_in){
-		
-		question_text = question_in;
-		if (question_text != null)return true;
-		return false;
-		
-	}
-	boolean set_possible_answers(String answers_in[]){
-		boolean set = false;
-		
-		return set;
-		
-	}
-	boolean set_correct_answer (char correct_answer_in){
-	boolean set = false;
-	 
-	return set;
-	
-	}
-	Question get_question(int questionnumb){
-		
-		
-		return this;
-	}
-		
-	void get_answers(int questionnumb){
-		//should return the 5 possible answers
-	}
 	
 	
 }//end class Question

@@ -122,9 +122,9 @@ public class Quiz {
 		
 		Question[] quiz_questions = new Question[10];
 		quiz_questions[0] = new Question();
-		quiz_questions[0].set_question("First question");
+		quiz_questions[0].setMquestionText("First question");
 		//quiz_questions[0].question_text = "First question";
-		System.out.println("a quiz " + quiz_questions[0].question_text);
+		System.out.println("a quiz " + quiz_questions[0].mquestionText);
 		// TODO Auto-generated method stub
 		//System.out.println("What we need is a " + phrase);
 		System.out.println("a quiz ");
@@ -142,7 +142,7 @@ public class Quiz {
 		 */
 		
 		
-		System.out.println("a quiz " + makeQuestions().question_text);
+		System.out.println("a quiz " + makeQuestions().mquestionText);
 	}
 	
 	boolean loadAllQuestions(String[] question_text/*,other strings string*/ ){
@@ -152,7 +152,7 @@ public class Quiz {
 	static Question makeQuestions(){
 		
 		Question nameofquestion = new Question();
-		nameofquestion.set_question("hardcoded question example");
+		nameofquestion.setMquestionText("hardcoded question example");
 		return nameofquestion;
 		//nameofquestion
 	}
