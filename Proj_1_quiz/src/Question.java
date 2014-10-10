@@ -2,7 +2,7 @@
 public class Question {
 	
 	static int sNumberOfQuestions = 0;
-	static int sNumberOfOption = 4;
+	static int sNumberOfOptions = 4;
 	
 	private String mquestionText;
 	private String moptions[];

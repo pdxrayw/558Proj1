@@ -8,11 +8,18 @@
  * the actual question data
  */
 public class HardCodedQuestions {
+	//static class variables
 	static int sNumberOfQuestions = 10;
 	static int sNumberOfOptions = 4;
-	// A set of hard coded questions and answers along with possible answers
+	//A set of hard coded questions and answers along with possible answers
 	//cycle through all questions and initialize the array of Questions
-	//for each question increment the number of questions so the quiz can be scored
+	//for each question increment the number of questions so the quiz can
+	//be scored.
+	
+	//What follows for all the hardcoded data is one line per 
+	//	question
+	//	answer
+	//	each of the four options
 	String[] hardCodedQuestions = {
 			"question1",
 			"question2",
@@ -42,11 +49,25 @@ public class HardCodedQuestions {
 	
 	
 	/**
-	 *What follows is 5 potential options for each question 
-	 * one of the options is the r
+	 *What follows is 4 potential options for each question 
+	 *The answer will obviously be displayed along with the
+	 *options, however it has a separate data variable.
 	 */
-	
-	//Hard coded options to display
+	/*
+	 *Hard coded options to display along with the answer.
+	 *I have elected to lay out the answer options in the following way
+	 *for enhanced readability. This gives, one option per line for each
+	 *question, rather than having them lumped together like this:
+	 *
+	 * String[][] hardCodedOptions = { {0, 0, 0, 0, 0},
+     *               {1, 1, 1, 1, 1},
+     *               {2, 2, 2, 2, 2},
+     *               {3, 3, 3, 3, 3},
+     *               {4, 4, 4, 4, 4} };
+	 * 
+	 * Not that there is anything wrong with this, I just wanted the code
+	 * to be cleaner and easier to read, despite the extra scrolling:)
+	 */
 	String[] hardCodedOption1 = {
 			"Option1",
 			"Option2",
@@ -118,7 +139,7 @@ public class HardCodedQuestions {
 	};//end of options string
 	
 	//String array to hold all of the options
-	
+	//Finally, a little housekeeping to neatly  place the options in a 2d array.
 	String[][] allHardCodedOptions = {
 			hardCodedOption1,
 			hardCodedOption2,
