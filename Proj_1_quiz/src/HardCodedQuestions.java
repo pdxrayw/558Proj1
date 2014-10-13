@@ -1,11 +1,27 @@
-/**
+/* File name HardCodedQuestions.java
+ *  
+ * Raymond Williams
+ * Project 1 for ECE 588
+ * Fall 2014
+ * Prof. Roy Kravitz
  * 
+ * This file contains the several hard coded string 
+ * elements for the purposes of populating class
+ * Question objects with data. Using this as a separate
+ * class from class Question allowed me to better
+ * encapsulate class question for later use, i.e. read
+ * from a file or database.   
+ * 
+ *******Dependencies******
+ * 	None
+ *  
+ *
  */
 
 /**
- * @author Ray
+ * @author Ray Williams
  * Created this class just as a separate data structure to hold all of
- * the actual question data
+ * the actual question data in a hard coded format. 
  */
 public class HardCodedQuestions {
 	//static class variables
